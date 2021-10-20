@@ -38,6 +38,7 @@ export class BookDialogComponent implements OnInit {
         (res:Response)=>
         {
           this._snackBar.open(res.message, "Close");
+          this.dialogRef.close();
         },
         (err:any)=>
         {
