@@ -1,0 +1,31 @@
+<h1 mat-dialog-title align="center">Book {{data.resource.name}}</h1>
+
+<div mat-dialog-content align="center" [formGroup]="form">
+
+  <mat-form-field appearance="fill">
+    <mat-label>From Date</mat-label>
+    <input matInput [matDatepicker]="pickerFrom" [(ngModel)]="booking.dateFrom" formControlName="dateFrom" > 
+    <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+    <mat-datepicker #pickerFrom></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>To Date</mat-label>
+    <input matInput [matDatepicker]="pickerTo" [(ngModel)]="booking.dateTo" formControlName="dateTo">
+    <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+    <mat-datepicker #pickerTo></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Quantity</mat-label>
+    <input matInput type="number" min="0" step="1" [(ngModel)]="booking.bookedQuantity" formControlName="bookedQuantity">
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions align="end"> 
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="BookResource()" cdkFocusInitial>Ok</button>
+</div>
+
+
